@@ -1,29 +1,26 @@
 // PalmerPenguinsM7.java
-//
-//
-// Refactored Palmer Penguins analysis using object-oriented approach
+// Nyesha Littles
+// 6/28/2026
+// Object-Oriented Refactoring and Encapsulation of Species Data
 
 public class PalmerPenguinsM7 {
+
     public static void main(String[] args) {
-        // Create an instance of SpeciesCounter
-        
+        System.out.println("Palmer Penguins M7");
+
+        // Create an instance of SpeciesCounter named "counter"
+        SpeciesCounter counter = new SpeciesCounter();
 
         // Read species data
-        
+        counter.readSpeciesData();
 
-        // Initialize species count
-        counter.initializeSpeciesCount();
-
-        // Check if data is empty
-        if (counter.isDataEmpty()) {
-            System.out.println("Error: The file is empty or could not be read.");
-            return;
+        // If data loaded cleanly, initialize, count, and print results
+        if (!counter.isDataEmpty()) {
+            counter.initializeSpeciesCount();
+            counter.countSpecies();
+            counter.printSpeciesCount();
+        } else {
+            System.out.println("Error: Species data could not be loaded. Verify CSV file placement.");
         }
-
-        // Count species occurrences
-        counter.countSpecies();
-
-        // Print results
-        counter.printSpeciesCount();
     }
 }
